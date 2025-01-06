@@ -5,8 +5,8 @@ export const Item = ({ curTodo }) => {
 
   return (
     <div
-      className={`bg-white ${
-        curTodo.completed ? "bg-green-600" : "bg-yellow-700"
+      className={` ${
+        curTodo.completed ? "bg-green-600" : "bg-white"
       } p-2 rounded-lg flex border justify-between`}
     >
       <div className="flex items-center text-lg">
