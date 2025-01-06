@@ -9,9 +9,10 @@ export const Form=()=>{
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-        console.log(todo +"__todo gya")
+        // console.log(todo +"__todo gya")/
         if(!todo || todo==" ") return
         addTodo({todo,completed:false,id:Date.now()})
+        setTodo("")
     }
 
     return (
