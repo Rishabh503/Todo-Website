@@ -11,8 +11,15 @@ export const Form=()=>{
     const handleSubmit=(e)=>{
         e.preventDefault()
         // console.log(todo +"__todo gya")/
-        if(!todo || todo==" ") return
-        if (!date) return
+        if(!todo || todo==" "){
+            alert("TODO CANT BE EMPTY")
+            return
+        } 
+           
+        if (!date) {
+            alert("enter date")
+            return
+        }
         addTodo({todo,completed:false,id:Date.now(),date})
         setTodo("")
     }
@@ -27,6 +34,7 @@ export const Form=()=>{
         <input className="border-black h-14 bg-yellow-400 border-solid border-x-yellow-500 rounded-lg" 
         type="date" 
         value={date} 
+        placeholder={Date.now()}
         onChange={(e)=>{setDate(e.target.value)}}/>
         <button className="bg-blue-400  px-4 rounded-lg">
             add

@@ -50,38 +50,37 @@ function App() {
 // },[todos])
 
 
-  return (
-    <TodoProvider className="bg-slate-700" value={{todos,addTodo,deleteTodo,toggleComplete}}>
-    <div className="bg-slate-700 min-h-screen min-w-screen content-center ">
-        <div className=" items-center flex flex-col pb-36  w-full  justify-between gap-y-12">
-              <div className=" flex flex-col ">
-          <h1  className="text-5xl font-bold text-white-400" >TODO MANAGER</h1>
-              </div>
-                <div className="items-start w-[48rem] h-2 ">
-                                    <Form/>
-                </div>
-        </div>
-          <div className="m-36  -mt-10 mb-10 ">
-          {/* items  */}
-          <div className="flex flex-col items-center gap-y-3">
-                       {todos.map((todo)=>(
-                        <div key={todo.id}
-                        className='w-[36rem]'>
-                          <Item curTodo={todo}/>
-                          </div>
-                       ))}
-                        <button onClick={handleDeleteAll} className="bg-red-500  pl-10 pr-10 text-3xl rounded-xl mt-4">
-                            clear all
-                        </button>
-                    </div>
-                    
-        </div>
-        
-        
+return (
+  <TodoProvider
+    className="bg-slate-700 min-h-screen"
+    value={{ todos, addTodo, deleteTodo, toggleComplete }}
+  >
+    <div className="bg-slate-700 min-h-screen w-full flex flex-col items-center px-4">
+      <header className="text-center py-8">
+        <h1 className="text-4xl md:text-5xl font-bold text-white">
+          TODO MANAGER
+        </h1>
+      </header>
+      <div className="w-full sm:w-4/5 lg:w-2/3">
+        <Form />
+      </div>
+      <main className="flex flex-col items-center mt-12 w-full sm:w-4/5 lg:w-2/3">
+        {todos.map((todo) => (
+          <div key={todo.id} className="w-full">
+            <Item curTodo={todo} />
+          </div>
+        ))}
+        <button
+          onClick={handleDeleteAll}
+          className="bg-red-500 text-white text-lg sm:text-xl px-6 py-2 rounded-xl mt-6"
+        >
+          Clear All
+        </button>
+      </main>
     </div>
+  </TodoProvider>
+);
 
-    </TodoProvider>
-  )
 }
 
 export default App
