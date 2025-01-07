@@ -3,6 +3,7 @@ import { useTodo } from "../context/todocontext";
 
 export const Form=()=>{
     const[todo,setTodo]=useState("");
+    const[date,setDate]=useState("")
 
     const {addTodo}=useTodo()
 
@@ -11,14 +12,23 @@ export const Form=()=>{
         e.preventDefault()
         // console.log(todo +"__todo gya")/
         if(!todo || todo==" ") return
-        addTodo({todo,completed:false,id:Date.now()})
+        if (!date) return
+        addTodo({todo,completed:false,id:Date.now(),date})
         setTodo("")
     }
 
     return (
-        <form  onSubmit={handleSubmit} className="flex">
-        <input className="bg-white w-full text-4xl" type="text" value={todo} onChange={(e)=>{setTodo(e.target.value)}} />
-        <button className="bg-blue-400 px-4 mx-5 rounded-lg">
+        <form  onSubmit={handleSubmit} className="flex gap-2 ">
+        <input className="bg-white w-full text-3xl" 
+        type="text"
+         value={todo} 
+         onChange={(e)=>{setTodo(e.target.value)}}
+         placeholder="add your todo here" />
+        <input className="border-black h-14 bg-yellow-400 border-solid border-x-yellow-500 rounded-lg" 
+        type="date" 
+        value={date} 
+        onChange={(e)=>{setDate(e.target.value)}}/>
+        <button className="bg-blue-400  px-4 rounded-lg">
             add
         </button>
       </form>

@@ -18,6 +18,9 @@ function App() {
       prev.filter((todo)=>todo.id!==id)
     )
   }
+  const handleDeleteAll=()=>{
+    setTodos([]);
+  }
 
   const toggleComplete=(id)=>{
       setTodos((prev)=>prev.map((lastTodo)=>lastTodo.id===id?{...lastTodo,completed:!lastTodo.completed}:lastTodo))
@@ -49,12 +52,12 @@ function App() {
 
   return (
     <TodoProvider className="bg-slate-700" value={{todos,addTodo,deleteTodo,toggleComplete}}>
-    <div className="bg-slate-700 min-h-screen min-w-screen  ">
-        <div className=" items-center flex flex-col p-36  w-full  justify-between gap-y-12">
+    <div className="bg-slate-700 min-h-screen min-w-screen content-center ">
+        <div className=" items-center flex flex-col pb-36  w-full  justify-between gap-y-12">
               <div className=" flex flex-col ">
-          <h1  className="text-3xl font-bold text-white-4000" >TODO MANAGER</h1>
+          <h1  className="text-5xl font-bold text-white-400" >TODO MANAGER</h1>
               </div>
-                <div className="items-start w-[32rem] h-2 ">
+                <div className="items-start w-[48rem] h-2 ">
                                     <Form/>
                 </div>
         </div>
@@ -67,11 +70,16 @@ function App() {
                           <Item curTodo={todo}/>
                           </div>
                        ))}
+                        <button onClick={handleDeleteAll} className="bg-red-500  pl-10 pr-10 text-3xl rounded-xl mt-4">
+                            clear all
+                        </button>
                     </div>
+                    
         </div>
         
         
     </div>
+
     </TodoProvider>
   )
 }
