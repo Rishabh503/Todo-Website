@@ -7,7 +7,7 @@ export const Item = ({ curTodo }) => {
     <div
       className={` ${
         curTodo.completed ? "bg-green-600" : "bg-white"
-      } p-2 rounded-lg flex border justify-between`}
+      } p-2 rounded-lg flex border justify-between overflow-auto` }
     >
       <div className="flex justify-between  text-lg">
        
@@ -20,16 +20,13 @@ export const Item = ({ curTodo }) => {
         
         {curTodo.todo}
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-2 ">
         <p>{curTodo.date}</p>
         <button
           onClick={() => deleteTodo(curTodo.id)} // Handle deletion
-          className="bg-red-500 text-white px-3 py-1 rounded-lg mr-2"
+          className="bg-red-500 text-white px-3 py-1  rounded-lg mr-2"
         >
           Delete
-        </button>
-        <button className="bg-blue-500 text-white px-3 py-1 rounded-lg">
-          Edit
         </button>
       </div>
     </div>

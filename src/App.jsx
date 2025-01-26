@@ -64,9 +64,9 @@ return (
       <div className="w-full sm:w-4/5 lg:w-2/3">
         <Form />
       </div>
-      <main className="flex flex-col items-center mt-12 w-full sm:w-4/5 lg:w-2/3">
+      <main className="flex  flex-col items-center mt-12 w-full sm:w-4/5 lg:w-2/3">
         {todos.map((todo) => (
-          <div key={todo.id} className="w-full">
+          <div key={todo.id} className="w-full ">
             <Item curTodo={todo} />
           </div>
         ))}
